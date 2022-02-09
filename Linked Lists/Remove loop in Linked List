@@ -1,0 +1,40 @@
+class Solution
+{
+    //Function to remove a loop in the linked list.
+    public static void removeLoop(Node head){
+        // code here
+        // remove the loop without losing any nodes
+        Node slow=head,fast=head;
+        Node ptr1=head;
+        Node ptr2=null;
+        int flag=0;
+        while(fast!=null)
+        {
+        slow=slow.next;
+        if(fast.next != null)
+         
+        { fast=fast.next.next;
+        if(slow==fast)
+          {
+              ptr2=fast;
+              flag=1;
+              break;
+          }}
+          else
+          break;
+          
+        }
+        if(flag==1)
+        {while(ptr1!=ptr2)
+        {
+            ptr1=ptr1.next;
+            ptr2=ptr2.next;
+            
+        }
+    while(ptr1!=ptr2.next)
+    {
+        ptr2=ptr2.next;
+    }
+    ptr2.next=null;}
+    }
+}
