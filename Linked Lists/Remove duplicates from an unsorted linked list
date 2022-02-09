@@ -1,0 +1,38 @@
+class Solution
+{
+    //Function to remove duplicates from unsorted linked list.
+    public Node removeDuplicates(Node head) 
+    {
+         // Your code here
+         Node temp=head;int flag=0;Node tempy=null;Node start=null;
+         LinkedHashSet<Integer> lhs=new LinkedHashSet<Integer>();
+         while(temp!=null)
+         {
+             lhs.add(temp.data);
+             temp=temp.next;
+         }
+       
+        for(Integer i:lhs)
+        {
+            if(flag==0)
+            {
+                int a=i;
+                Node n=new Node(a);
+                tempy=n;
+                start=n;
+                flag=1;
+            }
+            else
+            {
+               
+                int a=i;
+                Node n=new Node(a);
+                tempy.next=n;
+               tempy=tempy.next;
+                
+            }
+        }
+        return start;
+         }
+        
+    }
